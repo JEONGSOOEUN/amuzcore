@@ -20,13 +20,13 @@ class JsonDatasDB {
    // print(db);
     final List<Map<String, dynamic>> maps = await db.rawQuery(
         'SELECT * FROM ${abstractDatabase.DB.jsonDatas} '
-            'WHERE Key = ?', [key]
+            'WHERE key = ?', [key]
     );
     return List.generate(maps.length, (i) {
       return JsonData(
-          savedKey: maps[i]['Key'],
-          savedVal: maps[i]['Val'],
-          savedDate: maps[i]['Date'],
+          savedKey: maps[i]['key'],
+          savedVal: maps[i]['val'],
+          savedDate: maps[i]['date'],
       );
     });
   }
@@ -36,7 +36,7 @@ class JsonDatasDB {
     final db = await abstractDatabase.DB.connectDB();
     await db.delete(
         abstractDatabase.DB.jsonDatas,
-        where: "Key = ?",
+        where: "key = ?",
         whereArgs: [key]
     );
   }
@@ -56,9 +56,9 @@ class JsonData {
 
   Map<String, dynamic> toMap() {
     return {
-      'Key': savedKey,
-      'Val' : savedVal,
-      'Date' : savedDate,
+      'key': savedKey,
+      'val' : savedVal,
+      'date' : savedDate,
     };
   }
 

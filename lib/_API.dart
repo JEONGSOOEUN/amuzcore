@@ -23,6 +23,10 @@ class BaseApi{
   String notice = 'notice';
   String getToken = 'plugin/ApplicationHelper/csrf/_token';
   String checkEmail = 'auth/register/check/email';
+
+  String config = 'plugin/ApplicationHelper/config/list';
+  String lang = 'plugin/ApplicationHelper/lang/';
+
 }
 
 Map<String, String> headers = {};
